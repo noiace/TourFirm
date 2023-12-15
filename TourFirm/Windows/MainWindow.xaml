@@ -1,0 +1,30 @@
+﻿<Window x:Class="TourFirm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TourFirm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Login:"></Label>
+            <TextBox x:Name="TextBox_Login" Width="300"></TextBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Password:"></Label>
+            <TextBox x:Name="TextBox_Password" Width="300"></TextBox>
+        </StackPanel>
+
+        <Button Content="Sign Up" Grid.Row="0" Width="100" Height="30" x:Name="Button_SignUp" Click="Button_SignUp_Click" Margin="650,57,50,58"></Button>
+
+        <Button Content="Log In" Grid.Row="2" Width="150" Height="50" x:Name="Button_LogIn" Click="Button_LogIn_Click"></Button>
+    </Grid>
+</Window>
