@@ -28,8 +28,8 @@ namespace TourFirm
         
         private void Button_SignUp_Click(object sender, RoutedEventArgs e)
         {
-            var login = TextBox_SignUp.Text;
-            var password = PasswordBox_SignUp.Password;
+            var login = TextBox_Login.Text;
+            var password = TextBox_Password.Text;
 
             // Проверяем, существует ли пользователь с таким именем
             var existingUser = _context.Users.FirstOrDefault(u => u.UserName == login);
