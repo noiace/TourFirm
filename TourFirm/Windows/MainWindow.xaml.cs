@@ -55,6 +55,12 @@ namespace TourFirm
                 MessageBox.Show("Invalid Credentials");
             }
         }
-       
+
+        private void Button_SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Sign_Up sign = new Sign_Up();
+            sign.Show();
+            this.Close();
+        }
     }
 }

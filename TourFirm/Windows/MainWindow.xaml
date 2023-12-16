@@ -23,7 +23,7 @@
             <TextBox x:Name="TextBox_Password" Width="300"></TextBox>
         </StackPanel>
 
-        <Button Content="Sign Up" Grid.Row="0" Width="100" Height="30" x:Name="Button_SignUp" Click="Button_SignUp_Click" Margin="650,57,50,58"></Button>
+       
 
         <Button Content="Log In" Grid.Row="2" Width="150" Height="50" x:Name="Button_LogIn" Click="Button_LogIn_Click"></Button>
     </Grid>
