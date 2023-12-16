@@ -31,6 +31,18 @@ namespace TourFirm
             var login = TextBox_Login.Text;
             var password = TextBox_Password.Text;
 
+            if (password != TextBox_return_Password.Text)
+            {
+                MessageBox.Show("Пароли не совпадают");
+                return;
+            }
+
+            if (DatePicker_Birthday.SelectedDate == null)
+            {
+                MessageBox.Show("Пожалуста, введите дату рождения");
+                return;
+            }
+
             // Проверяем, существует ли пользователь с таким именем
             var existingUser = _context.Users.FirstOrDefault(u => u.UserName == login);
 
@@ -43,9 +55,14 @@ namespace TourFirm
             // Создаем нового пользователя
             User newUser = new User
             {
+                Name = TextBox_Name.Text,
+                Surname = TextBox_Surname.Text,
+                LastName = TextBox_Lastname.Text,
+                DateOfBirth = DatePicker_Birthday.SelectedDate.Value.ToUniversalTime(),
                 UserName = login,
-                Password = password // Необходимо обеспечить безопасность пароля в реальном проекте
-                                    // Добавьте остальные поля пользователя, если они есть
+                Password = password,
+                Email = TextBox_Email.Text,
+                Phone = TextBox_Phone.Text
             };
 
             // Добавляем пользователя в базу данных
@@ -53,6 +70,10 @@ namespace TourFirm
             _context.SaveChanges();
 
             MessageBox.Show("Регистрация прошла успешно.");
+
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }

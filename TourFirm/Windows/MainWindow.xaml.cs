@@ -56,7 +56,7 @@ namespace TourFirm
             }
         }
 
-        private void Button_SignUp_Click(object sender, RoutedEventArgs e)
+        private void Button_Open_SignUp_Click(object sender, RoutedEventArgs e)
         {
             Sign_Up sign = new Sign_Up();
             sign.Show();
