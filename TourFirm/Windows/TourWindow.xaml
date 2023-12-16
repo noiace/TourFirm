@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TourFirm.Windows"
         mc:Ignorable="d"
-        Title="TourWindow" Height="450" Width="800">
+        Title="TourWindow" MinHeight="450" MinWidth="1000">
     <Grid>
-        
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="ListView_Tours" HorizontalAlignment="Center">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    
+                    <StackPanel Orientation="Horizontal" Width="1000">
+                        <Border BorderBrush="LightSlateGray" BorderThickness="2" Margin="10">
+                            <Image
+                                Width="250"
+                                Source="{Binding TourImageFromResources}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">                                
+                            </Image>
+                        </Border>
+
+
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
+                            <TextBlock Text="{Binding DollarPrice}"></TextBlock>
+                        </StackPanel>
+                        
+                        
+                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"></TextBlock>
+                           
+                        
+                    </StackPanel>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

@@ -28,5 +28,7 @@
             <Button Content="Sign Up" Grid.Row="2" x:Name="Button_Open_SignUp" Click="Button_Open_SignUp_Click"></Button>
         </StackPanel>
         
+        
+        
     </Grid>
 </Window>

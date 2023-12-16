@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,10 @@ namespace TourFirm.Models
         public DateTime To { get; set; }
         public string? Image { get; set; }
         public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+        [NotMapped]
+        public string TourImageFromResources => "/Resources/" + Image;
+        [NotMapped]
+        public string DollarPrice => Price + "$";
     }
 }
