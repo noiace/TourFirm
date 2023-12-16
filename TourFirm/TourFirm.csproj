@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Alabasta.jpg" />
     <None Remove="Resources\BeachAlbatros.jpg" />
+    <None Remove="Resources\CakeIsland.jpg" />
+    <None Remove="Resources\dressrosa.jpg" />
+    <None Remove="Resources\FishmanIsland.jpg" />
+    <None Remove="Resources\SabaodyArchipelago.jpg" />
+    <None Remove="Resources\SkypieaIsland.jpg" />
     <None Remove="Resources\SunnyDays.jpeg" />
+    <None Remove="Resources\WanoCountry.jpg" />
+    <None Remove="Resources\Water7.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,8 +36,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Alabasta.jpg" />
     <Resource Include="Resources\BeachAlbatros.jpg" />
+    <Resource Include="Resources\CakeIsland.jpg" />
+    <Resource Include="Resources\dressrosa.jpg" />
+    <Resource Include="Resources\FishmanIsland.jpg" />
+    <Resource Include="Resources\SabaodyArchipelago.jpg" />
+    <Resource Include="Resources\SkypieaIsland.jpg" />
     <Resource Include="Resources\SunnyDays.jpeg" />
+    <Resource Include="Resources\WanoCountry.jpg" />
+    <Resource Include="Resources\Water7.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Text\" />
   </ItemGroup>
 
 </Project>
