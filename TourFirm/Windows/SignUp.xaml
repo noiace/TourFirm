@@ -5,43 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TourFirm"
         mc:Ignorable="d"
-        Title="Sign_Up" MinHeight="500" MinWidth="800" Height="500" Width="800">
+        Title="Sign_Up" MinHeight="600" MinWidth="600" Height="600" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+        
+        <Button Grid.Row="0" HorizontalAlignment="Left"  Content="Back" x:Name="Back" Click="Back_Click"></Button>
+        
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="Name:"></Label>
-            <TextBox x:Name="TextBox_Name" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_Name"></TextBox>
             
             <Label Content="Surname:"></Label>
-            <TextBox x:Name="TextBox_Surname" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_Surname"></TextBox>
             
             <Label Content="LastName:"></Label>
-            <TextBox x:Name="TextBox_Lastname" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_Lastname"></TextBox>
             
             <Label Content="Login:"></Label>
-            <TextBox x:Name="TextBox_Login" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_Login"></TextBox>
             
             <Label Content="Date Of Birthday:"></Label>
             <DatePicker x:Name="DatePicker_Birthday"></DatePicker>
 
             <Label Content="Password:"></Label>
-            <TextBox x:Name="TextBox_Password" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_Password"></TextBox>
             
             <Label Content="Repeat password:"></Label>
-            <TextBox x:Name="TextBox_return_Password" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_return_Password"></TextBox>
 
             <Label Content="Phone:"></Label>
-            <TextBox x:Name="TextBox_Phone" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_Phone"></TextBox>
 
             <Label Content="Email:"></Label>
-            <TextBox x:Name="TextBox_Email" Width="300"></TextBox>
+            <TextBox x:Name="TextBox_Email"></TextBox>
+        
         </StackPanel>
-
-        <Button Content="Sign Up" Grid.Row="3" x:Name="Button_SignUp" Click="Button_SignUp_Click"></Button>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Content="Sign Up" Grid.Row="3" x:Name="Button_SignUp" Click="Button_SignUp_Click"></Button>
+           
+        </StackPanel>
         
     </Grid>
 </Window>

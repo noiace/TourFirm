@@ -75,6 +75,13 @@ namespace TourFirm
             mw.Show();
             this.Close();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow back = new MainWindow();
+            back.Show();
+            this.Close();
+        }
     }
 }
 
