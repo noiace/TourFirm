@@ -8,9 +8,9 @@ namespace TourFirm.Models
 {
     public class Cart
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public string TourId { get; set; }
+        public int Id { get; set; } 
+        public int UserId { get; set; } 
+        public string TourId { get; set; } = null!;
        
         
     }

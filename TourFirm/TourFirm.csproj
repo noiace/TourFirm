@@ -48,8 +48,4 @@
     <Resource Include="Resources\Water7.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Text\" />
-  </ItemGroup>
-
 </Project>
