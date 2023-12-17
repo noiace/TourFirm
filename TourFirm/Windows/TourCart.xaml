@@ -8,12 +8,34 @@
         Title="TourCart" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel
-        Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Orientation="Horizontal">
-        <Button Content="Back" Grid.Row="0" x:Name="Back" Click="Button_Back_Click"></Button>
+        
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button Content="Back" Grid.Row="0" x:Name="Back" Click="Button_Back_Click"></Button>
          </StackPanel>
+
+        <DataGrid x:Name="dataGridCart" AutoGenerateColumns="False" IsReadOnly="True" Grid.ColumnSpan="3" Grid.Row="1">
+            <DataGrid.Resources>
+                <Style TargetType="TextBlock" x:Key="WrapText">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Photo">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="150" Source="{Binding Tour.TourImageFromResources}" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Tour.Name}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Price" Binding="{Binding Tour.DollarPrice}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Description" Binding="{Binding Tour.Description}" ElementStyle="{StaticResource WrapText}" Width="400"></DataGridTextColumn>
+                <DataGridTextColumn Header="From" Binding="{Binding Tour.From}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="To" Binding="{Binding Tour.To}" Width="auto"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

@@ -8,10 +8,10 @@
         Title="TourWindow" MinHeight="600" MinWidth="1200">
     <Grid>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Width="170" Margin="0,570,0,0">
-            <Button Content="Корзина" x:Name="Button_Open_TourCart" Click="Button_Open_TourCart_Click"/>
-        </StackPanel>
-
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="ListView_Tours" HorizontalAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -47,7 +47,7 @@
                         </StackPanel>
 
 
-                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="{Binding Description}"></TextBlock>
 
 
 
@@ -57,5 +57,9 @@
 
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+            <Button Content="Корзина" x:Name="Button_Open_TourCart" Click="Button_Open_TourCart_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

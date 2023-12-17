@@ -60,8 +60,7 @@ namespace TourFirm
 
             if (user != null)
             {
-                MessageBox.Show("OK");
-                TourWindow tw = new TourWindow();
+                TourWindow tw = new TourWindow(user);
                 tw.Show();
                 this.Close();
             }

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TourFirm.DataBase;
+using TourFirm.Models;
 
 namespace TourFirm.Windows
 {
@@ -19,13 +21,21 @@ namespace TourFirm.Windows
     /// </summary>
     public partial class TourCart : Window
     {
-        public TourCart()
+        private User _currentUser;
+        private TourDbContext _context;
+        public TourCart(User user)
         {
             InitializeComponent();
+            _currentUser = user;
+            _context = TourDbContext.GetContext();
+
+            var userCart = _context.Carts.Where(c => c.UserId == _currentUser.Id).ToList();
+
+            dataGridCart.ItemsSource = userCart;
         }
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
-            TourWindow tw = new TourWindow();
+            TourWindow tw = new TourWindow(_currentUser);
             tw.Show();
             this.Close();
         }

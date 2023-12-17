@@ -10,8 +10,8 @@ namespace TourFirm.Models
     {
         public int Id { get; set; } 
         public int UserId { get; set; } 
-        public string TourId { get; set; } = null!;
-       
-        
+        public int TourId { get; set; }
+        public virtual User User { get; set; } = null!;
+        public virtual Tour Tour { get; set; } = null!;
     }
 }
