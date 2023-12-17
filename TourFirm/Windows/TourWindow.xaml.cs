@@ -32,5 +32,11 @@ namespace TourFirm.Windows
 
             ListView_Tours.ItemsSource = _tours;
         }
+        private void Button_Add_Tour_Click(object sender, RoutedEventArgs e)
+        {
+            TourCart cart = new TourCart();
+            cart.Show();
+            this.Close();
+        }
     }
 }

@@ -15,16 +15,19 @@ using System.Windows.Shapes;
 namespace TourFirm.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для TourCart.xaml
     /// </summary>
-    public partial class OrderCart : Window
+    public partial class TourCart : Window
     {
-        public OrderCart()
+        public TourCart()
         {
             InitializeComponent();
         }
-
-
-
+        private void Button_Back_Click(object sender, RoutedEventArgs e)
+        {
+            TourWindow tw = new TourWindow();
+            tw.Show();
+            this.Close();
+        }
     }
 }

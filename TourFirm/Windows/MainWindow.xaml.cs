@@ -45,14 +45,10 @@ namespace TourFirm
             //context.Tours.Add(tour);
             //context.SaveChanges(); */
             var context = TourDbContext.GetContext();
-            Tour tour = new Tour() { Name = "Страна Вано", Price = 1200, From = new DateTime(2024, 1, 14).ToUniversalTime(), To = new DateTime(2024, 2, 12).ToUniversalTime(), Image = "WanoCountry.jpg" };
+            //Tour tour = new Tour() {};
 
-            //if (tour != null)
-            //{
-            //    context.Tours.Add(tour);
-            //    context.SaveChanges();
-
-            //}
+              // context.Tours.Add(tour);
+          //     context.SaveChanges();
         }
 
         private void Button_LogIn_Click(object sender, RoutedEventArgs e)

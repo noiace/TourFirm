@@ -27,6 +27,12 @@
                             </Image>
                         </Border>
 
+                        <StackPanel Orientation="Horizontal" Width="400">
+                            <Border BorderBrush="Aqua" BorderThickness="2" Margin="10">
+                                <Button Content="Добавить тур"  x:Name="Button_Add_Tour" Click="Button_Add_Tour_Click"></Button>
+                            </Border>
+                        </StackPanel>
+
 
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
