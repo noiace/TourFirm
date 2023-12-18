@@ -40,7 +40,14 @@ namespace TourFirm.Windows
             cart.Show();
             this.Close();
         }
+        private void Button_Minus_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void Button_Plus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void Button_Add_Tour_Click(object sender, RoutedEventArgs e)
         {
             var selectedTour = (sender as Button).DataContext as Tour;

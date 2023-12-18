@@ -18,6 +18,7 @@
 
         <DataGrid x:Name="dataGridCart" AutoGenerateColumns="False" IsReadOnly="True" Grid.ColumnSpan="3" Grid.Row="1">
             <DataGrid.Resources>
+
                 <Style TargetType="TextBlock" x:Key="WrapText">
                     <Setter Property="TextWrapping" Value="Wrap"/>
                 </Style>
