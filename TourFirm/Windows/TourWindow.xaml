@@ -5,14 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TourFirm.Windows"
         mc:Ignorable="d"
-        Title="TourWindow" MinHeight="600" MinWidth="1200" Background="SkyBlue">
+        Title="TourWindow" MinHeight="700" MinWidth="1200" Background="SkyBlue">
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="ListView_Tours" HorizontalAlignment="Center">
+        <Rectangle Fill="White">
+            
+        </Rectangle>
+        <Label Content="Список туров" HorizontalAlignment="Center" FontSize="20" FontWeight="Black"></Label>
+        <Button Content="Log Out" HorizontalAlignment="Left" x:Name="button_back" Click="button_back_Click"></Button>
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="ListView_Tours" HorizontalAlignment="Center" Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"></WrapPanel>
@@ -22,64 +28,48 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
 
-                    <StackPanel Orientation="Horizontal" Width="1000">
-                        <Border BorderBrush="LightSlateGray" BorderThickness="2" Margin="10">
-                            <Image
-                                Width="250"
-                                Source="{Binding TourImageFromResources}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
-                            </Image>
-                        </Border>
-
-                        <StackPanel Orientation="Horizontal" Width="400">
-                            <Border BorderBrush="Aqua" BorderThickness="2" Margin="10">
-                                <Button Content="Добавить тур"  x:Name="Button_Add_Tour" Click="Button_Add_Tour_Click"></Button>
+                    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="600"/>
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="LightSlateGray" BorderThickness="2" Margin="10" Grid.Column="0">
+                                <Image
+            Width="250"
+            Source="{Binding TourImageFromResources}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+                                </Image>
                             </Border>
-                            
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" >
+                                <Border BorderBrush="Aqua" BorderThickness="2" Margin="10">
+                                    <Button Content="Добавить тур"  x:Name="Button_Add_Tour" Click="Button_Add_Tour_Click"></Button>
+                                </Border>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                
-                                <Label Content="dsadadsadasddasdsadsa" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"></Label>
-                                    
-                                    <Border Background="Aqua" Grid.Column="0" Grid.Row="2" BorderBrush="Aqua" BorderThickness="0">
-                                        <Button Width="20" Height="20" Content="+"  x:Name="Button_Plus_Tour" Click="Button_Plus_Click"></Button>
-                                    </Border>
-                                
-                                    <Border Background="Green" Grid.Column="1" Grid.Row="2" BorderBrush="Aqua" BorderThickness="0">
-                                        <Button Width="20" Height="20" Content="-"  x:Name="Button_Minus_Tour" Click="Button_Minus_Click"></Button>
-                                    </Border>
-                            </Grid>
+                            </StackPanel>
 
-                        </StackPanel>
+                            <StackPanel VerticalAlignment="Center" Grid.Column="2" Margin="40">
+                                <TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
+                                <TextBlock Text="{Binding DollarPrice}"></TextBlock>
+                            </StackPanel>
 
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
-                            <TextBlock Text="{Binding DollarPrice}"></TextBlock>
-                        </StackPanel>
+                            <StackPanel Grid.Column="3" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Description}"></TextBlock>
+                            </StackPanel>
 
+                        </Grid>
+                    </Border>
 
-                        <TextBlock Text="{Binding Description}"></TextBlock>
-
-
-
-                    </StackPanel>
 
                 </DataTemplate>
 
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
             <Button Content="Корзина" x:Name="Button_Open_TourCart" Click="Button_Open_TourCart_Click"/>
         </StackPanel>
     </Grid>

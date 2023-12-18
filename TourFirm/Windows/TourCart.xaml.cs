@@ -39,6 +39,56 @@ namespace TourFirm.Windows
             tw.Show();
             this.Close();
         }
-     
+
+        private void DeleteFromCart_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedCartTours = dataGridCart.SelectedItems.Cast<Cart>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить выбранные {selectedCartTours.Count()} туров из корзины ?",
+                "Внимание",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    _context.Carts.RemoveRange(selectedCartTours);
+                    _context.SaveChanges();
+                    MessageBox.Show("Выбранные туры были удалены из корзины");
+
+                    dataGridCart.ItemsSource = _context.Carts.ToList();
+                }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }   
+            }
+        }
+
+        private void btnMinusOne_Click(object sender, RoutedEventArgs e)
+        {
+            var cartTour = (sender as Button).DataContext as Cart;
+
+            cartTour.Count--;
+            if (cartTour.Count == 0)
+            {
+                _context.Carts.Remove(cartTour);
+            }
+            else
+            {
+                _context.Carts.Update(cartTour);
+            }            
+            _context.SaveChanges();
+            dataGridCart.ItemsSource = _context.Carts.ToList();
+        }
+
+        private void btnPlusOne_Click(object sender, RoutedEventArgs e)
+        {
+            var cartTour = (sender as Button).DataContext as Cart;
+
+            cartTour.Count++;
+            _context.Carts.Update(cartTour);
+            _context.SaveChanges();
+            dataGridCart.ItemsSource = _context.Carts.ToList();
+        }
     }
 }

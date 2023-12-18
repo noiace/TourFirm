@@ -14,8 +14,10 @@
         </Grid.RowDefinitions>
         
         <Button Grid.Row="0" HorizontalAlignment="Left"  Content="Back" x:Name="Back" Click="Back_Click"></Button>
+        <Label Content="Sign Up" HorizontalAlignment="Center" FontSize="20" FontWeight="Black"></Label>
         
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            
             <Label Content="Name:"></Label>
             <TextBox x:Name="TextBox_Name"></TextBox>
             

@@ -53,11 +53,35 @@ namespace TourFirm.Windows
             var selectedTour = (sender as Button).DataContext as Tour;
             if (selectedTour != null)
             {
-                Cart tourToCart = new Cart() { User = _currentUser, Tour = selectedTour };
-                _context.Carts.Add(tourToCart);
+                var existingTourInCart = _context.Carts.Where(c => c.UserId == _currentUser.Id && c.TourId == selectedTour.Id).FirstOrDefault();
+
+                if (existingTourInCart == null)
+                {
+                    Cart tourToCart = new Cart() { User = _currentUser, Tour = selectedTour };
+                    _context.Carts.Add(tourToCart);
+                }
+                else
+                {
+                    existingTourInCart.Count++;
+                    _context.Carts.Update(existingTourInCart);
+                }
+                
                 _context.SaveChanges();
                 MessageBox.Show("Tour added to cart");
             }            
+        }
+
+        private void button_back_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show($"Вы точно хотите выйти ?",
+                "Внимание",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow mw = new MainWindow();
+                mw.Show();
+                this.Close();
+            }                
         }
     }
 }
