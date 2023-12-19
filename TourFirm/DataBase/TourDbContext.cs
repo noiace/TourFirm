@@ -35,12 +35,13 @@ namespace TourFirm.DataBase
         {
             optionsBuilder.UseLazyLoadingProxies();
 
-            optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=TourFirm;Username=postgres;Password=ilywenttosmoke19");
+            optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=TourFirm;Username=postgres;Password=1234");
         }
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Tour> Tours { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
     }
 }

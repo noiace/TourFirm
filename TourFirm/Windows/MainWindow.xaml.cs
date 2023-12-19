@@ -30,7 +30,7 @@ namespace TourFirm
         public MainWindow()
         {
             InitializeComponent();
-           /* // var context = TourDbContext.GetContext();
+            // var context = TourDbContext.GetContext();
             //User user = new User() { Name = "Adel", Surname = "Galimov", Email = "a@mail.ru", Phone = "89870000123", UserName = "noiace", Password = "1234", DateOfBirth = new DateTime (2004, 9, 14).ToUniversalTime() };
 
             //context.Users.Add(user);
@@ -40,11 +40,10 @@ namespace TourFirm
             //{
             //    MessageBox.Show(user.Name);
             //}
-            //var context = TourDbContext.GetContext();
-            //Tour tour = new Tour() { Name = "Sunny Days Resort Spa", Price = 610, From = new DateTime(2023, 12, 21).ToUniversalTime(), To = new DateTime(2023, 12, 28).ToUniversalTime(), Description = "Sunny Days Resort Spa & Aqua Park находится в городе Хургада. Курортный комплекс состоит из двух частей, объединённых в один отель: Palma de Mirette (бывший отель Sunny Days Palma de Mirette) и El Palacio (бывший отель Sunny Days El Palacio). Всего в отеле 1023 номера. Отель построен в 2002 году, последняя реновация проводилась в 2021 году (реновация территории отеля, некоторых номеров категории Стандарт и Премиум). До центра города Хургада - 5 км. До Международного аэропорта Хургада (Hurghada International Airport) - 10 км.\r\n", Image = "SunnyDays.jpeg" };
-            //context.Tours.Add(tour);
-            //context.SaveChanges(); */
-            var context = TourDbContext.GetContext();
+            //Tour tour = new Tour() { Name = "123", Price = 610, From = new DateTime(2023, 12, 21).ToUniversalTime(), To = new DateTime(2023, 12, 28).ToUniversalTime(), Description = "Sunny Days Resort Spa & Aqua Park находится в городе Хургада. Курортный комплекс состоит из двух частей, объединённых в один отель: Palma de Mirette (бывший отель Sunny Days Palma de Mirette) и El Palacio (бывший отель Sunny Days El Palacio). Всего в отеле 1023 номера. Отель построен в 2002 году, последняя реновация проводилась в 2021 году (реновация территории отеля, некоторых номеров категории Стандарт и Премиум). До центра города Хургада - 5 км. До Международного аэропорта Хургада (Hurghada International Airport) - 10 км.\r\n", Image = "Alabasta.jpg" };
+            //_context.Tours.Add(tour);
+            //_context.SaveChanges();
+            // var context = TourDbContext.GetContext();
             //Tour tour = new Tour() {};
 
               // context.Tours.Add(tour);
@@ -54,15 +53,24 @@ namespace TourFirm
         private void Button_LogIn_Click(object sender, RoutedEventArgs e)
         {
             var login = TextBox_Login.Text;
-            var password = TextBox_Password.Text;
+            var password = TextBox_Password.Password;
 
             var user = _context.Users.Where(u => u.UserName == login && u.Password == password).FirstOrDefault();
 
             if (user != null)
             {
-                TourWindow tw = new TourWindow(user);
-                tw.Show();
-                this.Close();
+                if (user.RoleId == 2)
+                {
+                    AdminPanel ap = new AdminPanel();
+                    ap.Show();
+                    this.Close();
+                }
+                else
+                {
+                    TourWindow tw = new TourWindow(user);
+                    tw.Show();
+                    this.Close();
+                }                
             }
             else
             {

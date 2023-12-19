@@ -21,12 +21,12 @@
         
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Password:"></Label>
-            <TextBox x:Name="TextBox_Password"></TextBox>
+            <PasswordBox x:Name="TextBox_Password"></PasswordBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-            <Button Background="White" Content="Log In" Grid.Row="2" x:Name="Button_LogIn" Click="Button_LogIn_Click"></Button>
-            <Button Background="White" Content="Sign Up" Grid.Row="2" x:Name="Button_Open_SignUp" Click="Button_Open_SignUp_Click"></Button>
+            <Button Content="Log In" Grid.Row="2" x:Name="Button_LogIn" Click="Button_LogIn_Click"></Button>
+            <Button Content="Sign Up" Grid.Row="2" x:Name="Button_Open_SignUp" Click="Button_Open_SignUp_Click"></Button>
         </StackPanel>
         
         

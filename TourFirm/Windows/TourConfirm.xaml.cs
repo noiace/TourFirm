@@ -19,11 +19,11 @@ namespace TourFirm.Windows
     /// <summary>
     /// Логика взаимодействия для TourRegistration.xaml
     /// </summary>
-    public partial class TourRegistration : Window
+    public partial class TourConfirm : Window
     {
         private User _currentUser;
         private TourDbContext _context;
-        public TourRegistration()
+        public TourConfirm()
         {
             InitializeComponent();
         }
