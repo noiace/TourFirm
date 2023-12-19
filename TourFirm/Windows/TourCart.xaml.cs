@@ -31,6 +31,12 @@ namespace TourFirm.Windows
 
             var userCart = _context.Carts.Where(c => c.UserId == _currentUser.Id).ToList();
 
+            float sum = 0;
+            foreach(var item in userCart)
+            {
+                sum += item.Tour.Price;
+            }
+
             dataGridCart.ItemsSource = userCart;
         }
         private void Button_Back_Click(object sender, RoutedEventArgs e)
@@ -89,6 +95,13 @@ namespace TourFirm.Windows
             _context.Carts.Update(cartTour);
             _context.SaveChanges();
             dataGridCart.ItemsSource = _context.Carts.ToList();
+        }
+
+        private void TourConfirmOrder_Click(object sender, RoutedEventArgs e)
+        {
+            TourConfirm tw = new TourConfirm(_currentUser);
+            tw.Show();
+            this.Close();
         }
     }
 }

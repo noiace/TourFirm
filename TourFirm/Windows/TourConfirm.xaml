@@ -15,7 +15,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left"  Content="Back" x:Name="Back"></Button>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
+            <Button Content="Back" Grid.Row="0" x:Name="Back" Click="Back_Click"></Button>
+        </StackPanel>
 
         <Label Content="Confirm Tour" HorizontalAlignment="Center" FontSize="20" FontWeight="Black"></Label>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">

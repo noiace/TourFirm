@@ -23,9 +23,18 @@ namespace TourFirm.Windows
     {
         private User _currentUser;
         private TourDbContext _context;
-        public TourConfirm()
+        public TourConfirm(User user)
         {
             InitializeComponent();
+            _currentUser = user;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            TourCart tw = new TourCart(_currentUser);
+            tw.Show();
+            this.Close();
+            
         }
     }
 }

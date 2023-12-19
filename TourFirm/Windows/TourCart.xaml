@@ -64,6 +64,7 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Удалить" x:Name="DeleteFromCart" Click="DeleteFromCart_Click"></Button>
+            <Button Content="Оплатить" x:Name="TourConfirmOrder" Click="TourConfirmOrder_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>
