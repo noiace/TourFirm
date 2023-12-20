@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TourFirm.DataBase;
@@ -11,9 +12,11 @@ using TourFirm.DataBase;
 namespace TourFirm.Migrations
 {
     [DbContext(typeof(TourDbContext))]
-    partial class TourDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231220205932_Added_Count_to_Order")]
+    partial class Added_Count_to_Order
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

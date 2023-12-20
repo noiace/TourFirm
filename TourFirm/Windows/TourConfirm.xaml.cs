@@ -36,5 +36,27 @@ namespace TourFirm.Windows
             this.Close();
             
         }
+            
+
+        private void ButtonPay_Click(object sender, RoutedEventArgs e)
+        {
+            if (ArePaymentDetailsValid())
+            {
+                TourPaid tw = new TourPaid();
+                tw.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all payment details.");
+            }
+
+        }
+        private bool ArePaymentDetailsValid()
+        {
+            return !string.IsNullOrWhiteSpace(TextBox_CreditCart.Text)
+                && !string.IsNullOrWhiteSpace(TextBox_CVCCode.Text)
+                && !string.IsNullOrWhiteSpace(DatePicker_Birthday.Text);
+        }
     }
 }
