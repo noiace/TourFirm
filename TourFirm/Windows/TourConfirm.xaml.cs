@@ -23,10 +23,13 @@ namespace TourFirm.Windows
     {
         private User _currentUser;
         private TourDbContext _context;
-        public TourConfirm(User user)
+        private List<Cart> _userCart;
+        public TourConfirm(User user, List<Cart> usercart)
         {
             InitializeComponent();
+            _context = TourDbContext.GetContext();
             _currentUser = user;
+            _userCart = usercart;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -42,6 +45,39 @@ namespace TourFirm.Windows
         {
             if (ArePaymentDetailsValid())
             {
+                List<Order> orders = new List<Order>();
+
+                foreach (var tour in _userCart)
+                {
+                    orders.Add(new Order
+                    {
+                        CreationDate = DateTime.Now.ToUniversalTime(),
+                        UserId = _currentUser.Id,
+                        Tour = tour.Tour,
+                        Count = tour.Count
+                    });
+                }
+                try
+                {
+                    _context.Carts.RemoveRange(_userCart);
+                    _context.SaveChanges();
+                }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                try
+                {
+                    _context.Orders.AddRange(orders);
+                    _context.SaveChanges();
+                    MessageBox.Show("Your order has been successfully paid");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
                 TourPaid tw = new TourPaid();
                 tw.Show();
                 this.Close();

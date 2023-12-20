@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TourFirm.Windows"
         mc:Ignorable="d"
-        Title="AdminPanel" MinHeight="500" Width="1300">
+        Title="AdminPanel" MinHeight="600" MinWidth="1200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -47,6 +47,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Удалить" x:Name="DeleteTours" Click="DeleteTours_Click"></Button>
             <Button Content="Добавить" x:Name="AddTour" Click="AddTour_Click"></Button>
+            <Button Content="Заказы" x:Name="ButtonGoToOrders" Click="ButtonGoToOrders_Click" Background="LightGreen"></Button>
         </StackPanel>
     </Grid>
 </Window>

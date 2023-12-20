@@ -23,21 +23,22 @@ namespace TourFirm.Windows
     {
         private User _currentUser;
         private TourDbContext _context;
+        private List<Cart> _userCart;
         public TourCart(User user)
         {
             InitializeComponent();
             _currentUser = user;
             _context = TourDbContext.GetContext();
 
-            var userCart = _context.Carts.Where(c => c.UserId == _currentUser.Id).ToList();
+            _userCart = _context.Carts.Where(c => c.UserId == _currentUser.Id).ToList();
 
             float sum = 0;
-            foreach(var item in userCart)
+            foreach(var item in _userCart)
             {
                 sum += item.Tour.Price;
             }
 
-            dataGridCart.ItemsSource = userCart;
+            dataGridCart.ItemsSource = _userCart;
         }
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
@@ -99,7 +100,7 @@ namespace TourFirm.Windows
 
         private void TourConfirmOrder_Click(object sender, RoutedEventArgs e)
         {
-            TourConfirm tw = new TourConfirm(_currentUser);
+            TourConfirm tw = new TourConfirm(_currentUser, _userCart);
             tw.Show();
             this.Close();
         }

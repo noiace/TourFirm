@@ -68,5 +68,11 @@ namespace TourFirm.Windows
             this.Close();
         }
 
+        private void ButtonGoToOrders_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanelOrders adminPanelOrders = new AdminPanelOrders();
+            adminPanelOrders.Show();
+            this.Close();
+        }
     }
 }
